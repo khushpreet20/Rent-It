@@ -14,10 +14,10 @@ dotenv.config({
 })
 const app = express()
 app.use(cors({
-    credentials: true,
-    // origin: 'http://localhost:5173'
-    origin: 'https://rent-it-client.vercel.app'
+    origin: ['https://rent-it-client.vercel.app'],
+    credentials: true
 }))
+// origin: 'http://localhost:5173'
 // app.use(cors({credentials: true}))
 app.use(express.json())
 app.use(express.urlencoded({limit: "20kb", extended: true}))
