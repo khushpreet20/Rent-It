@@ -8,7 +8,7 @@ export function UserContextProvider({children}){
     useEffect(()=>{
         if(!user){
             // can't make a useEffect an async callback so use .then() .catch()
-            axios.get('http://localhost:2004/auth', {withCredentials: true})
+            axios.get('/auth', {withCredentials: true})
             .then(res => {
                 // console.log(res);
                 if(res.data){

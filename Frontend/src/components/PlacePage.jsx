@@ -46,7 +46,7 @@ function PlacePage() {
         const data = {id, checkIn, checkOut, guest, your_name, phone, finalPrice};
         // console.log(data);
         
-        axios.post('http://localhost:2004/bookings', data, {withCredentials: true})
+        axios.post('/bookings', data, {withCredentials: true})
         .then(res => {
             setRedirect(`/profile/booking`)
         })
