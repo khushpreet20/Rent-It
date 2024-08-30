@@ -68,14 +68,19 @@ app.get('/logout',authenticateUser,logoutUser)
 // app.get('/logout',logoutUser)
 
 app.post('/upload', upload.array('photos', 50), (req, res) => {
-    console.log(req.files);
-    const uploadedPhotos = []
-    req.files.map(file => (
-        // uploadedPhotos.push({filename: file.filename, path: '/upload/temp/' + file.filename})
-        uploadedPhotos.push(file.filename)
-    ))
-    // res.json(req.files)
-    res.json(uploadedPhotos)
+    try {
+        console.log(req.files);
+        const uploadedPhotos = []
+        req.files.map(file => (
+            // uploadedPhotos.push({filename: file.filename, path: '/upload/temp/' + file.filename})
+            uploadedPhotos.push(file.filename)
+        ))
+        // res.json(req.files)
+        res.json(uploadedPhotos)
+    } catch (error) {
+        console.error('Error during image upload:', error);
+        res.status(500).json({ message: 'Error during image upload' });
+    }
 })
 
 app.post('/user-places', authenticateUser, addPlaces);
