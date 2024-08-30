@@ -15,7 +15,8 @@ dotenv.config({
 const app = express()
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173'
+    // origin: 'http://localhost:5173'
+    origin: 'https://rent-it-client.vercel.app'
 }))
 // app.use(cors({credentials: true}))
 app.use(express.json())
