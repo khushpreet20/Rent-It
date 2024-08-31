@@ -24,7 +24,7 @@ function Bookings() {
             <div className='flex w-60 bg-gray-300 rounded-2xl'>
               {/* <PlaceImg place={booking.place} /> */}
               {booking.accomodationId.photos.length > 0 && (
-                  <img className='rounded-2xl object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ booking.accomodationId.photos[0]}alt="first_photo" />
+                  <img className='rounded-2xl object-cover' src= {booking.accomodationId.photos[0]} alt="first_photo" />
               )}
             </div>
             <div className="py-3 pr-3 grow">

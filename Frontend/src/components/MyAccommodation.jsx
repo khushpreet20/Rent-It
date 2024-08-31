@@ -29,7 +29,7 @@ function MyAccommodation() {
                 className='flex bg-gray-200 p-4 rounded-2xl gap-4 w-full  min-h-32'>
                   <div className='flex bg-gray-300 rounded-2xl w-60'>
                     {place.photos.length > 0 && (
-                        <img className='rounded-2xl object-cover w-full' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ place.photos[0]} alt="first_photo" />
+                        <img className='rounded-2xl object-cover w-full' src={place.photos[0]} alt="first_photo" />
                     )}
                   </div>
                   <div className='grow-0 shrink'>

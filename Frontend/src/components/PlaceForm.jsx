@@ -136,7 +136,7 @@ function Places() {
                         {photos.length > 0 && photos.map((photo) => (
                             <div className='flex relative aspect-[2/1]'
                                 key={photo}>
-                                <img className='rounded-2xl w-full object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/` + photo} alt="" />
+                                <img className='rounded-2xl w-full object-cover' src={photo} alt="" />
                                 <button onClick={(e) => removePhoto(e,photo)}
                                 className='absolute text-white bg-black bg-opacity-50 rounded-md py-1 px-1 bottom-1 right-1'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">

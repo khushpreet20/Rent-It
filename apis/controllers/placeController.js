@@ -1,4 +1,5 @@
 import { Place } from "../models/places.model.js";
+import { uploadFile } from "../utils/FileUpload.js";
 const addPlaces = async (req, res, next) => {
     try {
         const id = req.user._id;
@@ -111,4 +112,25 @@ const updatePlaces = async(req, res, next) => {
 const listAllPlaces = async (req, res, next) => {
     res.json(await Place.find());
 }
-export {addPlaces, listMyAccommodations, listAccommodation, updatePlaces, listAllPlaces};
+
+const AddPhotos = async(req, res) => {
+    try {
+        // console.log(req.files);
+        const uploadedPhotos = []
+        // req.files.map(file => (
+        //     // uploadedPhotos.push({filename: file.filename, path: '/upload/temp/' + file.filename})
+        //     uploadedPhotos.push(file.filename)
+        // ))
+        for (const file of req.files) {
+            let photo = await uploadFile(file.path);  // Await the Cloudinary upload
+            // console.log(photo);
+            uploadedPhotos.push(photo.url);  // Push the uploaded photo URL to the array
+        }
+        // res.json(req.files)
+        res.json(uploadedPhotos)
+    } catch (error) {
+        console.error('Error during image upload:', error);
+        res.status(500).json({ message: 'Error during image upload' });
+    }
+}
+export {addPlaces, listMyAccommodations, listAccommodation, updatePlaces, listAllPlaces, AddPhotos};

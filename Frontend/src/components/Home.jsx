@@ -7,13 +7,13 @@ function Home() {
     useEffect(()=>{
         axios.get('/places')
         .then(res => {
-            setPlaces([...res.data, ...res.data, ...res.data, ...res.data])
+            setPlaces([...res.data])
         })
         
     },[])
   return (
     <>
-    <div className='px-6 py-3 mt-8 grid gap-6 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1'>
+    <div className='px-6 py-3 mt-8 grid gap-6 gap-y-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-4 sm:grid-cols-2'>
         {
             places.length > 0 && places.map(place => (
                 <Link to={'/places/' + place._id} 
@@ -22,7 +22,7 @@ function Home() {
                     {/* TODO: page bnana h for visit to see details of the place */}
                     <div className='bg-gray-500 rounded-2xl flex'>
                         {place.photos?.[0] && (
-                            <img src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ place.photos[0]} className='rounded-2xl object-cover aspect-square'/>
+                            <img src={place.photos[0]} className='rounded-2xl object-cover aspect-square'/>
                         )}
                     </div>
                     <div className='mt-3 flex flex-col'>

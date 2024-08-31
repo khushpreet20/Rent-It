@@ -97,27 +97,27 @@ function PlacePage() {
                     <div className='flex rounded-2xl'>
                             {place.photos?.[0] && (
                                 <img onClick={() => setShowAllPhotos(true)} className='hover:bg-black cursor-pointer hover:opacity-50
-                                rounded-l-2xl aspect-square object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ place.photos[0]} alt="" />
+                                rounded-l-2xl aspect-square object-cover' src={place.photos[0]} alt="" />
                             )}
                         {/* <div>
                         </div> */}
                     </div>
                     <div className='rounded-2xl grid gap-2'>
                         {place.photos?.[0] && (
-                            <img onClick={() => setShowAllPhotos(true)} className='hover:bg-black cursor-pointer hover:opacity-50 aspect-square object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ place.photos[0]} alt="" />
+                            <img onClick={() => setShowAllPhotos(true)} className='hover:bg-black cursor-pointer hover:opacity-50 aspect-square object-cover' src={place.photos[0]} alt="" />
                         )}
                         {place.photos?.[0] && (
-                            <img onClick={() => setShowAllPhotos(true)} className='hover:bg-black cursor-pointer hover:opacity-50 aspect-square object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ place.photos[0]} alt="" />
+                            <img onClick={() => setShowAllPhotos(true)} className='hover:bg-black cursor-pointer hover:opacity-50 aspect-square object-cover' src={place.photos[0]} alt="" />
                         )}
                     </div>
                     <div className='rounded-2xl grid gap-2'>
                         {place.photos?.[0] && (
                             <img onClick={() => setShowAllPhotos(true)} className='hover:bg-black cursor-pointer hover:opacity-50
-                            rounded-tr-2xl aspect-square object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ place.photos[0]} alt="" />
+                            rounded-tr-2xl aspect-square object-cover' src={place.photos[0]} alt="" />
                         )}
                         {place.photos?.[0] && (
                             <img onClick={() => setShowAllPhotos(true)} className='hover:bg-black cursor-pointer hover:opacity-50
-                            rounded-br-2xl aspect-square object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ place.photos[0]} alt="" />
+                            rounded-br-2xl aspect-square object-cover' src={place.photos[0]} alt="" />
                         )}
                     </div>
                     <button onClick={(e) => handleshowallphotos(e)}
@@ -149,7 +149,7 @@ function PlacePage() {
                             {place?.photos?.length > 0 && place.photos.map(photo => (
                                 <div className='px-8'
                                 key={photo}>
-                                    <img className = 'w-full h-full object-cover' src={`${import.meta.env.VITE_API_BASE_URL}/temp/`+ photo} alt="" />
+                                    <img className = 'w-full h-full object-cover' src={photo} alt="" />
                                 </div>
                             ))}
                         </div>

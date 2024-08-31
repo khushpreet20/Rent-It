@@ -6,8 +6,9 @@ import {auth, loginUser, logoutUser, registerUser } from "./controllers/userCont
 import cookieParser from "cookie-parser"
 import { authenticateUser } from "./middlewares/auth.middleware.js"
 import { upload } from "./middlewares/multer.middleware.js"
-import { addPlaces, listAccommodation, listMyAccommodations, updatePlaces, listAllPlaces } from "./controllers/placeController.js"
+import { addPlaces, listAccommodation, listMyAccommodations, updatePlaces, listAllPlaces, AddPhotos } from "./controllers/placeController.js"
 import { bookPlace, listAllBookings } from "./controllers/bookingController.js"
+import { uploadFile } from "./utils/FileUpload.js"
 
 dotenv.config({
     path: './.env'
@@ -67,21 +68,7 @@ app.get('/profile', (req, res, next)=>{
 app.get('/logout',authenticateUser,logoutUser)
 // app.get('/logout',logoutUser)
 
-app.post('/upload', upload.array('photos', 50), (req, res) => {
-    try {
-        console.log(req.files);
-        const uploadedPhotos = []
-        req.files.map(file => (
-            // uploadedPhotos.push({filename: file.filename, path: '/upload/temp/' + file.filename})
-            uploadedPhotos.push(file.filename)
-        ))
-        // res.json(req.files)
-        res.json(uploadedPhotos)
-    } catch (error) {
-        console.error('Error during image upload:', error);
-        res.status(500).json({ message: 'Error during image upload' });
-    }
-})
+app.post('/upload', upload.array('photos', 50), AddPhotos)
 
 app.post('/user-places', authenticateUser, addPlaces);
 app.get('/user-places', authenticateUser, listMyAccommodations);
